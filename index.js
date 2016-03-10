@@ -10,22 +10,27 @@ program
 .arguments('<file>')
 .option('-b, --bucket <bucket>', 'The bucket to upload to')
 .action(function(file) {
+
+	try {
+		var fileSize = fs.statSync(file).size;
+		var fileStream = fs.createReadStream(file);
+	} catch(e) {
+		console.log(chalk.bold.red('Oops! No such file or directory'));
+		return false;
+	}
+
 	console.log(chalk.cyan('Uploading %s to bucket %s'), file, program.bucket);
 
-	var fileSize = fs.statSync(file).size;
-	var fileStream = fs.createReadStream(file);
 	var barOpts = {
 		width: 50,
-		total: fileSize,
-		clear: true
+		total: fileSize
 	};
 
-	var bar = new ProgressBar(' uploading [:bar] :percent :etas', barOpts);
+	var bar = new ProgressBar(' Uploading [:bar] :percent :etas', barOpts);
 
 	var s3obj = new AWS.S3({params: {Bucket: program.bucket, ACL: 'public-read', Key: file.trim() }});
 	s3obj.upload({Body: fileStream}).
 	on('httpUploadProgress', function(evt) { 
-		// console.log(evt.loaded);
 		bar.tick(evt.loaded);
 	}).send(function(err, data) {
 		if(err) {
