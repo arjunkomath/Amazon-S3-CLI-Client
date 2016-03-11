@@ -1,6 +1,6 @@
 {
   "name": "cloud-push",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "CLI tool to upload files to Amazon S3",
   "main": "index.js",
   "scripts": {
