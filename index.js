@@ -1,10 +1,12 @@
 #!/usr/bin/env node
+var path = require('path')
 var program = require('commander');
 var ProgressBar = require('progress');
 var chalk = require('chalk');
 var AWS = require('aws-sdk');
 var s3 = new AWS.S3();
 var fs = require('fs');
+var mime = require('mime-types');
 
 program
 .arguments('<file>')
@@ -20,16 +22,28 @@ program
 	}
 
 	var file_name = file.split('/').pop();
+	var ext = path.extname(file_name);
+	
 	console.log(chalk.cyan('Uploading %s to bucket %s'), file_name, program.bucket);
 
 	var barOpts = {
 		width: 50,
 		total: fileSize
 	};
-
 	var bar = new ProgressBar(' Uploading [:bar] :percent :etas', barOpts);
 
-	var s3obj = new AWS.S3({params: {Bucket: program.bucket, ACL: 'public-read', Key: file_name.trim() }});
+	var params = {
+		params: {
+			Bucket: program.bucket, 
+			ACL: 'public-read', 
+			Key: file_name.trim()
+		}
+	};
+	
+	if(mime.lookup(file_name)) 
+		params.params.ContentType = mime.lookup(file_name);
+
+	var s3obj = new AWS.S3(params);
 	s3obj.upload({Body: fileStream}).
 	on('httpUploadProgress', function(evt) { 
 		bar.tick(evt.loaded);

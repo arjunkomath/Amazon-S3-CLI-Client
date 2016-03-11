@@ -15,6 +15,7 @@
     "aws-sdk": "^2.2.42",
     "chalk": "^1.1.1",
     "commander": "^2.9.0",
+    "mime-types": "^2.1.10",
     "progress": "^1.1.8"
   }
 }
