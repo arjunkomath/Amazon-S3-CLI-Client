@@ -19,7 +19,8 @@ program
 		return false;
 	}
 
-	console.log(chalk.cyan('Uploading %s to bucket %s'), file, program.bucket);
+	var file_name = file.split('/').pop();
+	console.log(chalk.cyan('Uploading %s to bucket %s'), file_name, program.bucket);
 
 	var barOpts = {
 		width: 50,
@@ -28,7 +29,7 @@ program
 
 	var bar = new ProgressBar(' Uploading [:bar] :percent :etas', barOpts);
 
-	var s3obj = new AWS.S3({params: {Bucket: program.bucket, ACL: 'public-read', Key: file.trim() }});
+	var s3obj = new AWS.S3({params: {Bucket: program.bucket, ACL: 'public-read', Key: file_name.trim() }});
 	s3obj.upload({Body: fileStream}).
 	on('httpUploadProgress', function(evt) { 
 		bar.tick(evt.loaded);
