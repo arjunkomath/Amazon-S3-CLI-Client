@@ -1,5 +1,5 @@
 # Amazon-S3-CLI-Client
-A command line client for uploading files to S3
+A command line tool for uploading files to S3
 
 ## Install
 ```
