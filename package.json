@@ -1,6 +1,6 @@
 {
   "name": "cloud-push",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "CLI tool to upload files to Amazon S3",
   "main": "index.js",
   "scripts": {
@@ -14,6 +14,8 @@
   "dependencies": {
     "aws-sdk": "^2.2.42",
     "chalk": "^1.1.1",
+    "co": "^4.6.0",
+    "co-prompt": "^1.0.0",
     "commander": "^2.9.0",
     "homedir": "^0.6.0",
     "mime-types": "^2.1.10",
