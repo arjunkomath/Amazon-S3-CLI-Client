@@ -62,7 +62,7 @@ program
 			}
 		});
 	} catch (e) {
-		console.log(chalk.bold.red('Oops! AWS config file is missing, Please check https://github.com/arjunkomath/Amazon-S3-CLI-Client#configure'));
+		console.log(chalk.bold.red('Oops! AWS config file is missing. Run "cloud-push configure" to create the config file.'));
 	}
 
 
