@@ -10,13 +10,18 @@ var mime = require('mime-types');
 var homedir = require('homedir'); 
 var co = require('co');
 var prompt = require('co-prompt');
+var pkg = require('./package.json');
 
 program
-.version('0.0.4')
+.version(pkg.version)
 .arguments('<file>')
 .option('-b, --bucket <bucket>', 'The bucket to upload to')
 .action(function(file) {
 
+	if(program.bucket === undefined) {
+		console.log(chalk.bold.red('Bucket name is missing!'));
+		return false;
+	}
 
 	try {
 		fs.accessSync(homedir()+'/.aws/credentials', fs.F_OK);
@@ -95,3 +100,8 @@ program
 });
 
 program.parse(process.argv);
+
+if (!program.args.length) {
+	program.parse([process.argv[0], process.argv[1], '-h']);
+	process.exit(0);
+}
