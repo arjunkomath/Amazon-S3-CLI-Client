@@ -6,6 +6,11 @@ A command line tool for uploading files to S3
 npm install cloud-push -g
 ```
 ## Configure
+
+### Automatic
+Run `cloud-push configure` and it will prompt to enter IAM key and secret and the config file will be saved
+
+### Manual
 Create a credentials file at ~/.aws/credentials on Mac/Linux or C:\Users\USERNAME\.aws\credentials on Windows
 ```
 [default]
@@ -14,11 +19,16 @@ aws_secret_access_key = your_secret_key
 ```
 ## Upload a file to S3
 ```
-$cloud-push [options] <file>
+Usage: cloud-push [options] [command] <file>
 
-Options:
+  Commands:
+
+    configure|config   Configure Cloud Push
+
+  Options:
 
     -h, --help             output usage information
+    -V, --version          output the version number
     -b, --bucket <bucket>  The bucket to upload to
 ```
 
