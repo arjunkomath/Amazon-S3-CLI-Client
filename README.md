@@ -8,7 +8,7 @@ npm install cloud-push -g
 ## Configure
 
 ### Automatic
-Run `cloud-push configure` and it will prompt to enter IAM key and secret and the config file will be saved
+Run `cloud-push configure` and it will prompt to enter IAM key and secret. The config file will be automatically created.
 
 ### Manual
 Create a credentials file at ~/.aws/credentials on Mac/Linux or C:\Users\USERNAME\.aws\credentials on Windows
