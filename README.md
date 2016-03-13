@@ -37,5 +37,8 @@ Usage: cloud-push [options] [command] <file>
 cloud-push -b test-cli myFile.png
 ```
 
+### Contribute
+Feature Request, Bugs and Ideas can be added [here.](https://github.com/arjunkomath/Amazon-S3-CLI-Client/issues)
+
 ### About Author
 * Built with <3 by [Arjun Komath](https://twitter.com/arjunz) / [arjunkomath@gmail.com](mailto:arjunkomath@gmail.com)
