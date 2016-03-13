@@ -1,6 +1,6 @@
 {
   "name": "cloud-push",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "CLI tool to upload files to Amazon S3",
   "main": "index.js",
   "scripts": {
@@ -9,6 +9,12 @@
   "bin": {
     "cloud-push": "./index.js"
   },
+  "keywords": [
+    "s3",
+    "amazon",
+    "client",
+    "upload"
+  ],
   "author": "Arjun Komath",
   "license": "MIT",
   "dependencies": {
