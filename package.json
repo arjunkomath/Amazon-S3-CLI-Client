@@ -16,6 +16,7 @@
     "upload"
   ],
   "author": "Arjun Komath",
+  "repository": "arjunkomath/Amazon-S3-CLI-Client",
   "license": "MIT",
   "dependencies": {
     "aws-sdk": "^2.2.42",
