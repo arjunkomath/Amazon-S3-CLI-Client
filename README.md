@@ -1,7 +1,7 @@
 # Amazon-S3-CLI-Client
 A command line tool for uploading files to S3
 
-[![GitHub issues](https://img.shields.io/github/issues/arjunkomath/Amazon-S3-CLI-Client.svg)](https://github.com/arjunkomath/Amazon-S3-CLI-Client/issues)[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/arjunkomath/Amazon-S3-CLI-Client/master/LICENSE)
+[![NPM](https://nodei.co/npm/cloud-push.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/cloud-push/)
 
 ## Install
 ```
