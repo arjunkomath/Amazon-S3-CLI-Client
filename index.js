@@ -99,6 +99,28 @@ program
 	});
 });
 
+program
+.command('bucket')
+.description('Set default Bucket')
+.action(function() {
+	co(function *() {
+		var bucket = yield prompt('Enter Bucket Name: ');
+
+		if(!bucket.trim()) {
+			console.log(chalk.bold.red('Bucket name cannot be empty!'));
+			return false;
+		}
+
+		fs.writeFile(homedir()+'/.cloudpushrc', bucket, function(err) {
+			if(err) {
+				return console.log(err);
+			}
+			console.log("Default bucket saved");
+			process.exit(0);
+		}); 
+	});
+});
+
 program.parse(process.argv);
 
 if (!program.args.length) {
