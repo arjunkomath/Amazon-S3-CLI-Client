@@ -39,6 +39,9 @@ Usage: cloud-push [options] [command] <file>
 cloud-push -b test-cli myFile.png
 ```
 
+### Known Issues
+- [Several new lines after progress bar](https://github.com/tj/node-progress/issues/123)
+
 ### Contribute
 Feature Request, Bugs and Ideas can be added [here.](https://github.com/arjunkomath/Amazon-S3-CLI-Client/issues)
 
