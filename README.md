@@ -40,7 +40,7 @@ cloud-push -b test-cli myFile.png
 ```
 
 ### Known Issues
-- [Several new lines after progress bar](https://github.com/tj/node-progress/issues/123)
+- [Several new lines after progress bar - Fixed](https://github.com/arjunkomath/Amazon-S3-CLI-Client/commit/abfff34aca2becf079c9994c1f6c06c448aac261)
 
 ### Contribute
 Feature Request, Bugs and Ideas can be added [here.](https://github.com/arjunkomath/Amazon-S3-CLI-Client/issues)
