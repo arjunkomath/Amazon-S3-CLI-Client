@@ -55,10 +55,17 @@ program
 		if(mime.lookup(file_name)) 
 			params.params.ContentType = mime.lookup(file_name);
 
+		var prev = 0, done = 0;
 		var s3obj = new AWS.S3(params);
 		s3obj.upload({Body: fileStream}).
 		on('httpUploadProgress', function(evt) { 
-			bar.tick(evt.loaded);
+			if(!prev) {
+				done = prev = evt.loaded;
+			} else {
+				done = evt.loaded - prev;
+				prev = evt.loaded;
+			}
+			bar.tick(done);
 		}).send(function(err, data) {
 			if(err) {
 				console.log(err);
